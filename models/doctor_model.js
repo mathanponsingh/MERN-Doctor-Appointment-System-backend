@@ -46,16 +46,26 @@ const docterAttendanceSchema = new mongoose.Schema({
     ref: "Docter",
     required: true,
   },
-  date: {
+  attendace : [{
+    date: {
     type: Date,
     default: Date.now,
   },
+  start: {
+    type: String,
+    default:""
+  },
+  end:{
+    type: String,
+    default :""
+  },
   status: {
     type: String,
-    enum: ["present", "absent"],
-    default: "present",
+    enum: ["Present", "Absent"],
+    default: "Absent",
   },
-});
+}]
+})
 
 export const DocterAttendance = mongoose.model(
   "DocterAttendance",
